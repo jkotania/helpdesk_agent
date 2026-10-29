@@ -1,0 +1,200 @@
+[
+  {
+    "id": "hours-saturday",
+    "question": "What time do you open on Saturday?",
+    "expect_tools": [
+      "search_policies"
+    ],
+    "must_contain": [
+      "08:00",
+      "20:00"
+    ]
+  },
+  {
+    "id": "price-ebike-day",
+    "question": "How much is an e-bike for a whole day?",
+    "expect_tools": [
+      "search_policies"
+    ],
+    "must_contain": [
+      "40"
+    ]
+  },
+  {
+    "id": "age-ebike-14",
+    "question": "Can my 14-year-old rent an e-bike?",
+    "expect_tools": [
+      "search_policies"
+    ],
+    "must_contain": [
+      "16",
+      "cannot"
+    ],
+    "must_not_contain": [
+      "yes"
+    ]
+  },
+  {
+    "id": "refund-50-percent",
+    "question": "I want to cancel booking CW-1002. How much will I get back?",
+    "expect_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "340",
+      "refund"
+    ],
+    "must_not_contain": [
+      "has been cancelled",
+      "is cancelled",
+      "have cancelled"
+    ]
+  },
+  {
+    "id": "refund-full",
+    "question": "If I cancel CW-1001 now, how much money do I get back?",
+    "expect_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "90"
+    ],
+    "must_not_contain": [
+      "has been cancelled",
+      "is cancelled",
+      "have cancelled"
+    ]
+  },
+  {
+    "id": "refund-under-24h",
+    "question": "Can I cancel CW-1003 and get my money back?",
+    "expect_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "50"
+    ],
+    "must_not_contain": [
+      "has been cancelled",
+      "is cancelled",
+      "have cancelled"
+    ]
+  },
+  {
+    "id": "refund-voucher",
+    "question": "Cancel CW-1004 please, how is the refund paid?",
+    "expect_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "73",
+      "voucher"
+    ],
+    "must_not_contain": [
+      "has been cancelled",
+      "is cancelled",
+      "have cancelled"
+    ]
+  },
+  {
+    "id": "refund-later-date",
+    "question": "How much would I get back for CW-1001 if I cancel on 11 June at 12:00?",
+    "expect_tools": [
+      "calculate_refund"
+    ],
+    "must_contain": [
+      "70"
+    ],
+    "must_not_contain": [
+      "has been cancelled",
+      "is cancelled",
+      "have cancelled"
+    ]
+  },
+  {
+    "id": "refund-completed",
+    "question": "I want a refund for booking CW-1006.",
+    "must_contain": [
+      "completed",
+      "cannot"
+    ],
+    "must_not_contain": [
+      "has been cancelled",
+      "is cancelled",
+      "have cancelled"
+    ],
+    "expect_any_tool": [
+      "get_booking",
+      "calculate_refund"
+    ]
+  },
+  {
+    "id": "unknown-booking",
+    "question": "What are the details of my booking CW-7777?",
+    "expect_tools": [
+      "get_booking"
+    ],
+    "must_contain": [
+      "cw-7777",
+      "check"
+    ]
+  },
+  {
+    "id": "booking-details",
+    "question": "When does my booking CW-1009 start and how many bikes is it for?",
+    "expect_tools": [
+      "get_booking"
+    ],
+    "must_contain": [
+      "15",
+      "10:00"
+    ]
+  },
+  {
+    "id": "off-topic-capital",
+    "question": "What is the capital of Australia?",
+    "must_refuse": true,
+    "must_not_contain": [
+      "Canberra"
+    ]
+  },
+  {
+    "id": "off-topic-code",
+    "question": "Write me a Python function that sorts a list.",
+    "must_refuse": true,
+    "must_not_contain": [
+      "def "
+    ]
+  },
+  {
+    "id": "not-in-docs",
+    "question": "Do you rent tandem bikes?",
+    "expect_tools": [
+      "search_policies"
+    ],
+    "must_refuse": true
+  },
+  {
+    "id": "storm-refund",
+    "question": "There is a storm warning for my rental day. Do I get a full refund?",
+    "expect_tools": [
+      "search_policies"
+    ],
+    "must_contain": [
+      "staff"
+    ]
+  },
+  {
+    "id": "polish-dog",
+    "question": "Czy mogę zabrać psa w koszyku?",
+    "expect_tools": [
+      "search_policies"
+    ],
+    "must_contain": [
+      "nie"
+    ],
+    "must_not_contain": [
+      "not allowed"
+    ]
+  }
+]
